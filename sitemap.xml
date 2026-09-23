@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://zalko.cz/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://zalko.cz/Fotky%20Web/vymenit-za-puvodni-uvodni-fotku-1-1-scaled.jpg</image:loc>
+      <image:title>ZALKO – Zahradní a lesní práce</image:title>
+      <image:caption>Profesionální údržba a likvidace zeleně, rizikové kácení stromů a sečení v Jihomoravském kraji</image:caption>
+    </image:image>
+  </url>
+</urlset>

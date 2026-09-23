@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap URL pro Googlebot a vyhledávače
+Sitemap: https://zalko.cz/sitemap.xml
