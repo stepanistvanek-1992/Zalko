@@ -83,7 +83,7 @@
         "image": "https://zalko.cz/Fotky%20Web/vymenit-za-puvodni-uvodni-fotku-1-1-scaled.jpg",
         "description": "Profesionální údržba a likvidace zeleně, sečení a mulčování pozemků, likvidace náletových dřevin, frézování pařezů, rizikové kácení stromů a údržba fotovoltaických elektráren v Jihomoravském kraji.",
         "telephone": "+420605283963",
-        "email": "info@zalko.cz",
+        "email": "kosturik.zalko@seznam.cz",
         "taxID": "09897372",
         "priceRange": "$$",
         "address": {
@@ -221,11 +221,23 @@
 
   <style>
     /* Custom utility and interactive styling */
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #ffffff;
       color: #1a202c;
       overflow-x: hidden;
+    }
+    /* Ensure crisp and non-distorted image rendering on all desktop resolutions */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .img-cover-hd {
+      object-fit: cover;
+      image-rendering: -webkit-optimize-contrast;
     }
 
     /* Tilted yellow badge in Hero */
@@ -337,29 +349,30 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- Logo -->
-        <a href="#uvod" class="flex items-center gap-3 group" title="ZALKO - Zahradní a lesní práce">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-white/10 p-1 flex items-center justify-center transition-transform group-hover:scale-105 border border-white/15">
-            <!-- Authentic tree mark or fallback SVG -->
-            <img src="Logo, ikona webu/cropped-Zalko-identiy-site-.png" alt="ZALKO Logo" class="w-full h-full object-contain filter drop-shadow">
+        <a href="#uvod" class="flex items-center gap-3 group" title="ZALKO - Zahradní a lesní práce Koštuřík">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white/10 p-1 flex items-center justify-center transition-transform group-hover:scale-105 border border-white/20 shrink-0" style="border-radius: 50%;">
+            <!-- Authentic tree mark cropped to a perfect circle -->
+            <img src="Logo, ikona webu/cropped-Zalko-identiy-site-.png" alt="ZALKO Logo" class="w-full h-full object-cover rounded-full filter drop-shadow" style="border-radius: 50%;">
           </div>
           <div class="flex flex-col">
             <span class="text-xl sm:text-2xl font-black tracking-wider text-white uppercase leading-none font-sans">
               ZALKO
             </span>
-            <span class="text-[10px] sm:text-[11px] font-medium text-gray-300 tracking-wider uppercase mt-1">
-              Zahradní a lesní práce
+            <span class="text-[9px] sm:text-[11px] font-medium text-gray-300 tracking-wider uppercase mt-1 leading-tight">
+              zahradní a lesní práce koštuřík
             </span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-gray-200">
+        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-7 text-sm font-medium text-gray-200">
           <a href="#uvod" class="text-brand-lime hover:text-white transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-lime">Úvod</a>
           <a href="#sluzby" class="hover:text-brand-lime transition-colors">Služby</a>
           <a href="#realizace" class="hover:text-brand-lime transition-colors">Realizace</a>
           <a href="#reference" class="hover:text-brand-lime transition-colors">Reference</a>
           <a href="#pro-koho" class="hover:text-brand-lime transition-colors">Pro koho pracujeme</a>
-          <a href="#poptavka" class="hover:text-brand-lime transition-colors">Kontakt</a>
+          <a href="#poptavka" class="hover:text-brand-lime transition-colors">Poptávkový formulář</a>
+          <a href="#kontakt" class="hover:text-brand-lime transition-colors">Kontakt</a>
         </nav>
 
         <!-- Right Header Action Button (Call CTA) -->
@@ -393,7 +406,8 @@
       <a href="#realizace" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5">Realizace</a>
       <a href="#reference" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5">Reference</a>
       <a href="#pro-koho" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5">Pro koho pracujeme</a>
-      <a href="#poptavka" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5">Kontakt</a>
+      <a href="#poptavka" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5">Poptávkový formulář</a>
+      <a href="#kontakt" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5">Kontakt</a>
       <div class="pt-2">
         <a href="tel:+420605283963" class="w-full flex items-center justify-center gap-2 bg-brand-lime text-black font-bold py-3 rounded-lg text-center shadow">
           <span>Zavolat: +420 605 283 963</span>
@@ -408,11 +422,11 @@
   <!-- ========================================================================= -->
   <section id="uvod" class="relative min-h-[580px] lg:min-h-[640px] flex items-center bg-[#09150e] overflow-hidden">
     
-    <!-- Background Image with Real Scaled Machine Photo -->
+    <!-- Background Image with Real Scaled Machine Photo: machine clearly visible in mobile viewport, shifted right on desktop -->
     <div class="absolute inset-0 z-0">
       <img src="Fotky Web/vymenit-za-puvodni-uvodni-fotku-1-1-scaled.jpg" 
            alt="ZALKO lesní technika a mulčování" 
-           class="w-full h-full object-cover object-right lg:object-center filter brightness-90">
+           class="w-full h-full object-cover object-[52%_57%] sm:object-[60%_52%] lg:object-[82%_45%] filter brightness-90">
       <!-- Dark gradient overlay from left to guarantee readability matching the design -->
       <div class="absolute inset-0 bg-gradient-to-r from-[#08120b] via-[#08120b]/85 md:via-[#08120b]/70 to-[#08120b]/35"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#08120b] via-transparent to-black/30"></div>
@@ -491,12 +505,12 @@
           <p class="text-xs sm:text-sm font-semibold tracking-wide text-gray-200">Realizace pro firmy,<br>obce i soukromníky</p>
         </div>
 
-        <!-- USP 3: Více než 5 let zkušeností -->
+        <!-- USP 3: Více než 6 let zkušeností -->
         <div class="flex flex-col items-center justify-center p-3 pt-4 sm:pt-3">
           <div class="w-10 h-10 mb-2.5 rounded-full bg-white/5 flex items-center justify-center text-brand-lime">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
           </div>
-          <p class="text-xs sm:text-sm font-semibold tracking-wide text-gray-200">Více než 5 let<br>zkušeností</p>
+          <p class="text-xs sm:text-sm font-semibold tracking-wide text-gray-200">Více než 6 let<br>zkušeností</p>
         </div>
 
         <!-- USP 4: Likvidace a odvoz -->
@@ -673,58 +687,71 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 5. SECTION: PROČ ZALKO? & REALIZACE (Exact Match to Design Crop)           -->
+  <!-- 5. SECTION: PROČ VYBRAT PRÁVĚ NÁS & REALIZACE                              -->
   <!-- ========================================================================= -->
-  <section id="realizace" class="py-0 bg-[#f8faf9] border-t border-b border-gray-200/70 overflow-hidden">
+  <section id="proc-vybrat-nas" class="py-0 bg-[#f8faf9] border-t border-b border-gray-200/70 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-        <!-- Left Column: Proč Zalko? (col-span-4) -->
+        <!-- Left Column: Proč vybrat právě nás (col-span-4) -->
         <div class="lg:col-span-4 flex flex-col justify-center py-10 lg:py-16">
           <div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
-              Proč Zalko?
+              Proč vybrat právě nás
             </h2>
             <div class="w-10 h-1 bg-brand-lime mt-1.5 mb-7 rounded-full"></div>
 
-            <div class="space-y-6">
-              <!-- Benefit 1: Speech bubble -->
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 flex-shrink-0 text-brand-lime flex items-center justify-center">
-                  <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            <div class="space-y-5">
+              <!-- Benefit 1: Nacenění zdarma -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-lg bg-brand-lime/15 text-[#14532d] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg class="w-5 h-5 text-[#14532d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Rychlá komunikace</h4>
-                  <p class="text-xs sm:text-sm text-gray-600">a individuální přístup</p>
+                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Nacenění zdarma</h4>
+                  <p class="text-xs sm:text-sm text-gray-600">Nezávazná a přesná kalkulace na míru každé zakázky</p>
                 </div>
               </div>
 
-              <!-- Benefit 2: Shield -->
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 flex-shrink-0 text-brand-lime flex items-center justify-center">
-                  <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              <!-- Benefit 2: Profesionální technika -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-lg bg-brand-lime/15 text-[#14532d] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg class="w-5 h-5 text-[#14532d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Kvalitně odvedená práce</h4>
-                  <p class="text-xs sm:text-sm text-gray-600">a spolehlivost</p>
+                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Profesionální technika</h4>
+                  <p class="text-xs sm:text-sm text-gray-600">díky správné technice trvá realizace zlomek času a šetří peníze</p>
                 </div>
               </div>
 
-              <!-- Benefit 3: Price estimate -->
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 flex-shrink-0 text-brand-lime flex items-center justify-center">
-                  <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              <!-- Benefit 3: Kompletní řešení na jednom místě bez starostí -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-lg bg-brand-lime/15 text-[#14532d] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg class="w-5 h-5 text-[#14532d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Možnost nacenění</h4>
-                  <p class="text-xs sm:text-sm text-gray-600">na míru</p>
+                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Kompletní řešení</h4>
+                  <p class="text-xs sm:text-sm text-gray-600">Kompletní řešení na jednom místě bez starostí</p>
+                </div>
+              </div>
+
+              <!-- Benefit 4: Více než 6 let zkušeností -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-lg bg-brand-lime/15 text-[#14532d] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg class="w-5 h-5 text-[#14532d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-snug">Více než 6 let zkušeností</h4>
+                  <p class="text-xs sm:text-sm text-gray-600">spolehlivost a desítky spokojených klientů</p>
                 </div>
               </div>
             </div>
@@ -749,36 +776,59 @@
           </div>
         </div>
 
-        <!-- Right Column: Realizace (col-span-4) -->
-        <div class="lg:col-span-4 flex flex-col justify-center py-10 lg:py-16">
+        <!-- Right Column: Realizace (col-span-4) with dedicated anchor and scroll-margin -->
+        <div id="realizace" class="lg:col-span-4 flex flex-col justify-center py-10 lg:py-16 scroll-mt-24">
           <div>
             <div class="flex items-center justify-between mb-1.5">
               <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
                 Realizace
               </h2>
-              <a href="#poptavka" class="text-xs sm:text-sm font-semibold text-gray-700 hover:text-black flex items-center gap-1">
-                <span>Všechny realizace</span>
-                <span>→</span>
-              </a>
+              <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Před a Po
+              </span>
             </div>
             <div class="w-10 h-1 bg-brand-lime mt-1 mb-6 rounded-full"></div>
 
-            <!-- Two Rounded Images Side-by-Side (Před & Po) matching Image 2 -->
+            <!-- Two Rounded Images Side-by-Side (Před & Po) with Lightbox trigger -->
             <div class="grid grid-cols-2 gap-3 sm:gap-4">
               
               <!-- Photo 1: Před -->
-              <div class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-100 group">
+              <div onclick="openLightbox(0)" 
+                   role="button" 
+                   tabindex="0"
+                   aria-label="Zvětšit fotografii Před realizací"
+                   class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-100 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime">
                 <img src="Fotky Web/realizace-pred.jpg" alt="Před realizací" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div class="bg-black/75 rounded-full p-2 text-white shadow-lg transform group-hover:scale-110 transition-transform">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                  </div>
+                </div>
                 <span class="absolute bottom-2 left-2 bg-black/80 backdrop-blur-sm text-white font-bold text-[11px] px-2.5 py-0.5 rounded-md shadow">
                   Před
+                </span>
+                <span class="absolute top-2 right-2 bg-black/70 text-white text-[10px] font-medium px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline-block shadow">
+                  Zvětšit ⤢
                 </span>
               </div>
 
               <!-- Photo 2: Po -->
-              <div class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-100 group">
+              <div onclick="openLightbox(1)" 
+                   role="button" 
+                   tabindex="0"
+                   aria-label="Zvětšit fotografii Po realizaci"
+                   class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-100 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime">
                 <img src="Fotky Web/realizace-po.jpg" alt="Po realizaci" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div class="bg-black/75 rounded-full p-2 text-brand-lime shadow-lg transform group-hover:scale-110 transition-transform">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                  </div>
+                </div>
                 <span class="absolute bottom-2 left-2 bg-black/80 backdrop-blur-sm text-brand-lime font-bold text-[11px] px-2.5 py-0.5 rounded-md shadow">
                   Po
+                </span>
+                <span class="absolute top-2 right-2 bg-black/70 text-brand-lime text-[10px] font-medium px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline-block shadow">
+                  Zvětšit ⤢
                 </span>
               </div>
 
@@ -788,13 +838,9 @@
             <p id="realization-caption" class="text-xs sm:text-sm font-bold text-gray-800 mt-4 text-center">
               Likvidace náletových dřevin – Hodonínsko, 4 100 m²
             </p>
-
-            <!-- 3 Dots Indicator matching Image 2 -->
-            <div class="flex items-center justify-center gap-1.5 mt-2.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-brand-lime"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-gray-300"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-gray-300"></span>
-            </div>
+            <p class="text-[11px] text-gray-500 text-center mt-1">
+              Klikněte na fotku pro otevření zvětšeného náhledu
+            </p>
 
           </div>
         </div>
@@ -1038,11 +1084,11 @@
         </p>
       </div>
 
-      <!-- 4 Category Items Grid spanning full width (Clean & borderless matching mockup) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      <!-- 3 Category Items Grid spanning full width -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         
         <!-- 1. Firmy -->
-        <div class="flex flex-col justify-between group">
+        <div class="flex flex-col justify-between group bg-white/60 p-6 rounded-2xl border border-gray-200/60 transition-all hover:shadow-md hover:border-brand-lime/40">
           <div>
             <div class="w-12 h-12 mb-4 text-[#14532d] group-hover:text-brand-lime transition-colors flex items-center justify-start">
               <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
@@ -1050,27 +1096,27 @@
             <h4 class="font-bold text-gray-900 text-xl mb-2">Firmy</h4>
             <p class="text-sm text-gray-600 leading-relaxed">Údržba areálů, průmyslových pozemků, komerčních ploch i FVE parků.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-gray-200/60">
-            <span class="text-xs font-semibold text-[#14532d] group-hover:text-brand-lime transition-colors">Pravidelná i jednorázová péče →</span>
+          <div class="mt-5 pt-3 border-t border-gray-200/60">
+            <span class="text-xs font-semibold text-[#14532d] group-hover:text-[#65a30d] transition-colors inline-block select-none cursor-default">Pravidelná i jednorázová péče</span>
           </div>
         </div>
 
-        <!-- 2. Obce -->
-        <div class="flex flex-col justify-between group">
+        <!-- 2. Obce (bez příkopů podél cest) -->
+        <div class="flex flex-col justify-between group bg-white/60 p-6 rounded-2xl border border-gray-200/60 transition-all hover:shadow-md hover:border-brand-lime/40">
           <div>
             <div class="w-12 h-12 mb-4 text-[#14532d] group-hover:text-brand-lime transition-colors flex items-center justify-start">
               <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
             </div>
             <h4 class="font-bold text-gray-900 text-xl mb-2">Obce</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">Veřejná zeleň, příkopy podél cest, náletové dřeviny, údržba parků a obecních pozemků.</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Veřejná zeleň, náletové dřeviny, údržba parků a obecních pozemků.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-gray-200/60">
-            <span class="text-xs font-semibold text-[#14532d] group-hover:text-brand-lime transition-colors">Spolehlivý partner samospráv →</span>
+          <div class="mt-5 pt-3 border-t border-gray-200/60">
+            <span class="text-xs font-semibold text-[#14532d] group-hover:text-[#65a30d] transition-colors inline-block select-none cursor-default">Spolehlivý partner samospráv</span>
           </div>
         </div>
 
         <!-- 3. Majitelé pozemků -->
-        <div class="flex flex-col justify-between group">
+        <div class="flex flex-col justify-between group bg-white/60 p-6 rounded-2xl border border-gray-200/60 transition-all hover:shadow-md hover:border-brand-lime/40">
           <div>
             <div class="w-12 h-12 mb-4 text-[#14532d] group-hover:text-brand-lime transition-colors flex items-center justify-start">
               <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
@@ -1078,22 +1124,8 @@
             <h4 class="font-bold text-gray-900 text-xl mb-2">Majitelé pozemků</h4>
             <p class="text-sm text-gray-600 leading-relaxed">Zahrady, louky, zanedbané a zarostlé stavební parcely před prodejem či výstavbou.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-gray-200/60">
-            <span class="text-xs font-semibold text-[#14532d] group-hover:text-brand-lime transition-colors">Zhodnocení nemovitosti →</span>
-          </div>
-        </div>
-
-        <!-- 4. Fotovoltaické elektrárny -->
-        <div class="flex flex-col justify-between group">
-          <div>
-            <div class="w-12 h-12 mb-4 text-[#14532d] group-hover:text-brand-lime transition-colors flex items-center justify-start">
-              <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-            </div>
-            <h4 class="font-bold text-gray-900 text-xl mb-2">Fotovoltaické elektrárny</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">Pravidelné sečení a mulčování vysoké trávy, čištění okolí solárních konstrukcí a oplocení.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-gray-200/60">
-            <span class="text-xs font-semibold text-[#14532d] group-hover:text-brand-lime transition-colors">Bezpečně bez poškození FVE →</span>
+          <div class="mt-5 pt-3 border-t border-gray-200/60">
+            <span class="text-xs font-semibold text-[#14532d] group-hover:text-[#65a30d] transition-colors inline-block select-none cursor-default">Zhodnocení nemovitosti</span>
           </div>
         </div>
 
@@ -1254,15 +1286,7 @@
                   <input type="text" id="form-area" name="area" placeholder="Např. 1500 m²" required class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all">
                 </div>
 
-                <!-- 3. Telefon -->
-                <div>
-                  <label for="form-phone" class="block text-xs font-bold text-gray-700 mb-1.5">
-                    Telefon <span class="text-red-500">*</span>
-                  </label>
-                  <input type="tel" id="form-phone" name="phone" placeholder="+420 123 456 789" required class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all">
-                </div>
-
-                <!-- 4. Lokalita -->
+                <!-- 3. Lokalita -->
                 <div>
                   <label for="form-location" class="block text-xs font-bold text-gray-700 mb-1.5">
                     Lokalita <span class="text-red-500">*</span>
@@ -1270,20 +1294,28 @@
                   <input type="text" id="form-location" name="location" placeholder="Např. Hodonín, Strážnice..." required class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all">
                 </div>
 
-                <!-- 5. Vaše zpráva -->
+                <!-- 4. Telefon -->
                 <div>
-                  <label for="form-message" class="block text-xs font-bold text-gray-700 mb-1.5">
-                    Vaše zpráva <span class="text-red-500">*</span>
+                  <label for="form-phone" class="block text-xs font-bold text-gray-700 mb-1.5">
+                    Telefon <span class="text-red-500">*</span>
                   </label>
-                  <input type="text" id="form-message" name="message" placeholder="Popište co nejvíce, co potřebujete" required class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all">
+                  <input type="tel" id="form-phone" name="phone" placeholder="+420 123 456 789" required class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all">
                 </div>
 
-                <!-- 6. E-mail -->
-                <div>
+                <!-- 5. E-mail -->
+                <div class="sm:col-span-1 lg:col-span-2">
                   <label for="form-email" class="block text-xs font-bold text-gray-700 mb-1.5">
                     E-mail <span class="text-red-500">*</span>
                   </label>
                   <input type="email" id="form-email" name="email" placeholder="vas@email.cz" required class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all">
+                </div>
+
+                <!-- 6. Vaše zpráva (Multi-line Textarea spanning full width) -->
+                <div class="col-span-full">
+                  <label for="form-message" class="block text-xs font-bold text-gray-700 mb-1.5">
+                    Vaše zpráva <span class="text-red-500">*</span>
+                  </label>
+                  <textarea id="form-message" name="message" rows="5" placeholder="Popište co nejvíce, co potřebujete (charakter pozemku, přístupnost terénu, požadovaný termín realizace...)" required class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-lime focus:border-brand-lime transition-all resize-y min-h-[120px]"></textarea>
                 </div>
 
               </div>
@@ -1325,8 +1357,8 @@
 
         </div>
 
-        <!-- Right / Contact & Regional Map Box (lg:col-span-4) -->
-        <div class="lg:col-span-4 bg-[#0c1a12] border border-white/10 rounded-2xl p-6 text-white shadow-xl flex flex-col justify-between">
+        <!-- Right / Contact & Regional Map Box (lg:col-span-4) with id="kontakt" for direct navigation -->
+        <div id="kontakt" class="lg:col-span-4 bg-[#0c1a12] border border-white/10 rounded-2xl p-6 text-white shadow-xl flex flex-col justify-between scroll-mt-24">
           
           <div>
             <!-- Direct Contact List -->
@@ -1344,13 +1376,13 @@
               </a>
 
               <!-- Email -->
-              <a href="mailto:info@zalko.cz" class="flex items-center gap-3 text-white hover:text-brand-lime transition-colors group">
+              <a href="mailto:kosturik.zalko@seznam.cz" class="flex items-center gap-3 text-white hover:text-brand-lime transition-colors group">
                 <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-brand-lime group-hover:scale-105 transition-transform">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <div>
                   <span class="text-xs text-gray-400 block">Napište e-mail</span>
-                  <span class="text-sm sm:text-base font-bold text-white">info@zalko.cz</span>
+                  <span class="text-sm sm:text-base font-bold text-white">kosturik.zalko@seznam.cz</span>
                 </div>
               </a>
 
@@ -1417,12 +1449,12 @@
         
         <!-- Footer Logo -->
         <a href="#uvod" class="flex items-center gap-3 group">
-          <div class="w-9 h-9 rounded-lg bg-white/10 p-1 flex items-center justify-center border border-white/15">
-            <img src="Logo, ikona webu/cropped-Zalko-identiy-site-.png" alt="ZALKO" class="w-full h-full object-contain">
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-white/10 p-1 flex items-center justify-center border border-white/20 shrink-0" style="border-radius: 50%;">
+            <img src="Logo, ikona webu/cropped-Zalko-identiy-site-.png" alt="ZALKO" class="w-full h-full object-cover rounded-full" style="border-radius: 50%;">
           </div>
           <div>
             <span class="text-xl font-black tracking-wider text-white uppercase block leading-none">ZALKO</span>
-            <span class="text-[10px] text-gray-400 tracking-wider uppercase">Zahradní a lesní práce</span>
+            <span class="text-[10px] text-gray-400 tracking-wider uppercase">zahradní a lesní práce koštuřík</span>
           </div>
         </a>
 
@@ -1433,7 +1465,8 @@
           <a href="#realizace" class="hover:text-brand-lime transition-colors">Realizace</a>
           <a href="#reference" class="hover:text-brand-lime transition-colors">Reference</a>
           <a href="#pro-koho" class="hover:text-brand-lime transition-colors">Pro koho pracujeme</a>
-          <a href="#poptavka" class="hover:text-brand-lime transition-colors">Kontakt</a>
+          <a href="#poptavka" class="hover:text-brand-lime transition-colors">Poptávkový formulář</a>
+          <a href="#kontakt" class="hover:text-brand-lime transition-colors">Kontakt</a>
         </nav>
 
         <!-- Social Icons -->
@@ -1457,7 +1490,7 @@
         <p class="flex items-center gap-4">
           <span>Petrov u Strážnice | Hodonínsko</span>
           <span>•</span>
-          <a href="#poptavka" class="hover:text-white transition-colors">info@zalko.cz</a>
+          <a href="mailto:kosturik.zalko@seznam.cz" class="hover:text-white transition-colors">kosturik.zalko@seznam.cz</a>
         </p>
       </div>
 
@@ -1545,44 +1578,96 @@
     }
 
     // ----------------------------------------------------
-    // 3. Realization Dots Switcher
+    // 3. Realization Lightbox Modal Functionality
     // ----------------------------------------------------
-    const realizations = [
+    const realizationImages = [
       {
-        caption: "Likvidace náletových dřevin – Hodonínsko, 4 100 m²",
-        pred: "Fotky Web/realizace-pred.jpg",
-        po: "Fotky Web/realizace-po.jpg"
+        src: "Fotky Web/realizace-pred.jpg",
+        badge: "Před realizací",
+        caption: "Likvidace náletových dřevin – Hodonínsko, 4 100 m² (Před zahájením prací)"
       },
       {
-        caption: "Rekultivace zanedbaného pozemku – Strážnice, 2 500 m²",
-        pred: "Fotky Web/IMG_20240307_131939-scaled.jpg",
-        po: "Fotky Web/IMG_20240613_113308-scaled.jpg"
-      },
-      {
-        caption: "Mulčování a čištění plochy – Břeclavsko, 6 200 m²",
-        pred: "Fotky Web/IMG_20240826_080132-scaled.jpg",
-        po: "Fotky Web/vymenit-za-puvodni-uvodni-fotku-1-1-scaled.jpg"
+        src: "Fotky Web/realizace-po.jpg",
+        badge: "Po realizaci",
+        caption: "Likvidace náletových dřevin – Hodonínsko, 4 100 m² (Po kompletním vyčištění)"
       }
     ];
 
-    function setRealization(index) {
-      const data = realizations[index];
-      if (!data) return;
+    let currentLbIndex = 0;
 
-      const captionEl = document.getElementById('realization-caption');
-      if (captionEl) captionEl.textContent = data.caption;
-
-      const dots = document.querySelectorAll('.real-dot');
-      dots.forEach((dot, i) => {
-        if (i === index) {
-          dot.classList.remove('bg-gray-300');
-          dot.classList.add('bg-brand-lime', 'scale-125');
-        } else {
-          dot.classList.add('bg-gray-300');
-          dot.classList.remove('bg-brand-lime', 'scale-125');
-        }
-      });
+    function openLightbox(index) {
+      currentLbIndex = index;
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal) return;
+      updateLightboxContent();
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function switchLightboxTab(index) {
+      currentLbIndex = index;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const item = realizationImages[currentLbIndex];
+      if (!item) return;
+
+      const img = document.getElementById('lightbox-img');
+      const badge = document.getElementById('lb-badge');
+      const caption = document.getElementById('lightbox-caption');
+      const btnPred = document.getElementById('lb-btn-pred');
+      const btnPo = document.getElementById('lb-btn-po');
+
+      if (img) {
+        img.src = item.src;
+        img.alt = item.badge;
+      }
+      if (badge) {
+        badge.textContent = item.badge;
+        if (currentLbIndex === 1) {
+          badge.className = "text-xs font-bold px-2.5 py-1 rounded bg-black/60 border border-brand-lime/40 text-brand-lime";
+        } else {
+          badge.className = "text-xs font-bold px-2.5 py-1 rounded bg-black/60 border border-white/30 text-white";
+        }
+      }
+      if (caption) {
+        caption.textContent = item.caption;
+      }
+
+      if (btnPred && btnPo) {
+        if (currentLbIndex === 0) {
+          btnPred.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-black shadow";
+          btnPo.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20";
+        } else {
+          btnPred.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20";
+          btnPo.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-lime text-black font-extrabold shadow";
+        }
+      }
+    }
+
+    // Keyboard navigation for Lightbox (Escape to close, arrows to switch)
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal || modal.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        switchLightboxTab(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        switchLightboxTab(0);
+      }
+    });
 
     // ----------------------------------------------------
     // 4. Preselect Service from Cards and Scroll to Form
@@ -1667,6 +1752,60 @@
       });
     }
   </script>
+
+  <!-- ========================================================================= -->
+  <!-- LIGHTBOX MODAL FOR REALIZACE IMAGES                                       -->
+  <!-- ========================================================================= -->
+  <div id="lightbox-modal" 
+       class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6" 
+       role="dialog" 
+       aria-modal="true" 
+       aria-label="Zvětšený náhled realizace"
+       onclick="if(event.target === this) closeLightbox()">
+    
+    <!-- Close button -->
+    <button type="button" 
+            onclick="closeLightbox()" 
+            class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2.5 rounded-full transition-colors z-20 focus:outline-none focus:ring-2 focus:ring-brand-lime" 
+            aria-label="Zavřít">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+
+    <!-- Modal Content Box -->
+    <div class="relative max-w-4xl w-full flex flex-col items-center">
+      
+      <!-- Top controls & tabs: Před / Po -->
+      <div class="w-full flex items-center justify-between mb-3 text-white px-1">
+        <div class="flex items-center gap-2">
+          <button id="lb-btn-pred" type="button" onclick="switchLightboxTab(0)" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-black shadow">
+            Před
+          </button>
+          <button id="lb-btn-po" type="button" onclick="switchLightboxTab(1)" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20">
+            Po
+          </button>
+        </div>
+        <span id="lb-badge" class="text-xs font-bold px-2.5 py-1 rounded bg-black/60 border border-white/20 text-white">
+          Před realizací
+        </span>
+      </div>
+
+      <!-- Image container -->
+      <div class="relative rounded-2xl overflow-hidden bg-black/50 border border-white/10 shadow-2xl max-h-[70vh] sm:max-h-[75vh] flex items-center justify-center w-full">
+        <img id="lightbox-img" src="Fotky Web/realizace-pred.jpg" alt="Zvětšená realizace" class="max-h-[70vh] sm:max-h-[75vh] max-w-full object-contain select-none transition-all duration-300">
+      </div>
+
+      <!-- Caption -->
+      <div class="mt-3.5 text-center px-4">
+        <p id="lightbox-caption" class="text-sm sm:text-base font-semibold text-white drop-shadow">
+          Likvidace náletových dřevin – Hodonínsko, 4 100 m²
+        </p>
+        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">
+          Použijte tlačítka nahoře nebo šipky na klávesnici (← / →) pro přepnutí Před / Po • Klávesa ESC zavře okno
+        </p>
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
