@@ -248,10 +248,27 @@
       image-rendering: -webkit-optimize-contrast;
     }
 
-    /* Tilted yellow badge in Hero */
+    /* Floating badge in Hero with subtle micro-animation */
+    @keyframes hero-badge-float {
+      0%, 100% {
+        transform: rotate(-5deg) translateY(0px);
+      }
+      50% {
+        transform: rotate(-3deg) translateY(-7px);
+      }
+    }
     .hero-floating-badge {
-      transform: rotate(-6deg);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      transform: rotate(-5deg);
+      box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.6), 0 0 20px -2px rgba(187, 242, 70, 0.15);
+      animation: hero-badge-float 4.5s ease-in-out infinite;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform;
+    }
+    .hero-floating-badge:hover {
+      animation-play-state: paused;
+      transform: rotate(-2deg) scale(1.05) translateY(-4px);
+      box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.7), 0 0 28px rgba(187, 242, 70, 0.3);
+      border-color: rgba(187, 242, 70, 0.6);
     }
 
     /* Infinite Marquee for partner logos */
@@ -474,14 +491,23 @@
           </div>
         </div>
 
-        <!-- Right: Tilted Accent Text Badge (Exact match to JPG) -->
+        <!-- Right: Floating Accent Text Badge over Kubota with micro-animation -->
         <div class="lg:col-span-4 hidden lg:flex justify-end pr-6">
-          <div class="hero-floating-badge bg-black/60 backdrop-blur-md border border-white/20 p-5 rounded-2xl text-right max-w-xs transition-transform hover:scale-105">
-            <p class="text-brand-accent text-xl font-bold tracking-wide leading-tight drop-shadow">
-              Vlastní technika<br>
-              <span class="text-white">= efektivní práce</span><br>
-              <span class="text-brand-accent text-lg">i na větších plochách</span>
-            </p>
+          <div class="hero-floating-badge bg-black/65 backdrop-blur-md border border-white/20 p-5 sm:p-6 rounded-2xl text-right max-w-xs select-none">
+            <div class="space-y-1">
+              <p class="text-white text-lg sm:text-xl font-extrabold tracking-wide drop-shadow leading-snug">
+                Vysoká tráva?
+              </p>
+              <p class="text-white text-lg sm:text-xl font-extrabold tracking-wide drop-shadow leading-snug">
+                Náletové dřeviny?
+              </p>
+              <div class="pt-2.5 mt-2.5 border-t border-white/20">
+                <span class="inline-flex items-center gap-2 text-brand-lime text-xl sm:text-2xl font-black tracking-tight drop-shadow-md">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-lime animate-pulse flex-shrink-0"></span>
+                  Nechte to na nás!
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
