@@ -1573,44 +1573,45 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Section Header spanning across top -->
+      <div class="mb-8 sm:mb-10">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Poptávka zakázky
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl">
+          Pošlete nám pár fotek a základní informace o pozemku. Ozveme se vám s konkrétní nabídkou.
+        </p>
 
-        <!-- Left / Form Side (lg:col-span-8) -->
-        <div class="lg:col-span-8">
-          
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Poptávka zakázky
-          </h2>
-          <p class="text-gray-300 text-sm sm:text-base mt-2">
-            Pošlete nám pár fotek a základní informace o pozemku. Ozveme se vám s konkrétní nabídkou.
-          </p>
-
-          <!-- 3 Feature badges (Rychlá odpověď, Nezávazná kalkulace, Zdarma) -->
-          <div class="flex flex-wrap items-center gap-6 mt-4 mb-6 text-xs sm:text-sm text-gray-200">
-            <div class="flex items-center gap-2">
-              <div class="w-5 h-5 rounded-full bg-brand-lime/20 text-brand-lime flex items-center justify-center">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </div>
-              <span class="font-medium">Rychlá odpověď</span>
+        <!-- 3 Feature badges (Rychlá odpověď, Nezávazná kalkulace, Zdarma) -->
+        <div class="flex flex-wrap items-center gap-6 mt-4 text-xs sm:text-sm text-gray-200">
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded-full bg-brand-lime/20 text-brand-lime flex items-center justify-center">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-
-            <div class="flex items-center gap-2">
-              <div class="w-5 h-5 rounded-full bg-brand-lime/20 text-brand-lime flex items-center justify-center">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              </div>
-              <span class="font-medium">Nezávazná kalkulace</span>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <div class="w-5 h-5 rounded-full bg-brand-lime/20 text-brand-lime flex items-center justify-center">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-              </div>
-              <span class="font-medium">Zdarma</span>
-            </div>
+            <span class="font-medium">Rychlá odpověď</span>
           </div>
 
-          <!-- The Floating White Form Card -->
-          <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl text-gray-800">
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded-full bg-brand-lime/20 text-brand-lime flex items-center justify-center">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            </div>
+            <span class="font-medium">Nezávazná kalkulace</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded-full bg-brand-lime/20 text-brand-lime flex items-center justify-center">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <span class="font-medium">Zdarma</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Column Grid: Form Card & Contact Card perfectly top-aligned -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+        <!-- Left / Form Card (lg:col-span-8) -->
+        <div class="lg:col-span-8 bg-white rounded-2xl p-6 sm:p-8 shadow-2xl text-gray-800 flex flex-col justify-between">
             
             <!-- Web3Forms Form -->
             <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
@@ -1723,12 +1724,10 @@
 
             </form>
 
-          </div>
-
         </div>
 
         <!-- Right / Contact & Regional Map Box (lg:col-span-4) with id="kontakt" for direct navigation -->
-        <div id="kontakt" class="lg:col-span-4 bg-[#0c1a12] border border-white/10 rounded-2xl p-6 text-white shadow-xl flex flex-col justify-between scroll-mt-24">
+        <div id="kontakt" class="lg:col-span-4 bg-[#0c1a12] border border-white/10 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between scroll-mt-24">
           
           <div>
             <!-- Direct Contact List -->
@@ -1795,7 +1794,7 @@
 
           <!-- View on Google Maps Button -->
           <div class="mt-6">
-            <a href="https://www.google.com/maps/place/Zahradn%C3%AD+a+lesn%C3%AD+pr%C3%A1ce+Ko%C5%A1tu%C5%99%C3%ADk+-+Zalko/@48.8821405,17.2747699,17z/data=!4m15!1m8!3m7!1s0x47133a76d3bac479:0x8d2aab77b1d6b664!2sPetrov+109,+696+65+Petrov!3b1!8m2!3d48.8821405!4d17.2773448!16s%2Fg%2F11c26ct8p1!3m5!1s0x47133be8d9f34f51:0x4e9a15b90a92fe7!8m2!3d48.8821405!4d17.2773448!16s%2Fg%2F11v03zms8f?entry=ttu&amp;g_ep=EgoyMDI2MDkyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-brand-lime hover:bg-brand-limeHover text-[#09150e] font-bold text-xs sm:text-sm py-3 px-4 rounded-lg transition-colors">
+            <a href="https://maps.app.goo.gl/suRAjiBiuhJjqT5RA" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-brand-lime hover:bg-brand-limeHover text-[#09150e] font-bold text-xs sm:text-sm py-3 px-4 rounded-lg transition-colors">
               <span>Zobrazit na mapě</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
