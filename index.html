@@ -783,65 +783,127 @@
               <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
                 Realizace
               </h2>
-              <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                Před a Po
-              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Před a Po
+                </span>
+                <span id="realization-counter-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-brand-lime/20 text-[#14532d] border border-brand-lime/40">
+                  1 / 7
+                </span>
+              </div>
             </div>
-            <div class="w-10 h-1 bg-brand-lime mt-1 mb-6 rounded-full"></div>
+            <div class="w-10 h-1 bg-brand-lime mt-1 mb-5 rounded-full"></div>
 
-            <!-- Two Rounded Images Side-by-Side (Před & Po) with Lightbox trigger -->
-            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+            <!-- Interactive Before/After Realization Carousel -->
+            <div id="realization-carousel" 
+                 class="relative select-none group/carousel focus:outline-none" 
+                 tabindex="0" 
+                 aria-label="Fotogalerie realizací Před a Po" 
+                 aria-roledescription="carousel">
               
-              <!-- Photo 1: Před -->
-              <div onclick="openLightbox(0)" 
-                   role="button" 
-                   tabindex="0"
-                   aria-label="Zvětšit fotografii Před realizací"
-                   class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-100 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime">
-                <img src="Fotky Web/realizace-pred.jpg" alt="Před realizací" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div class="bg-black/75 rounded-full p-2 text-white shadow-lg transform group-hover:scale-110 transition-transform">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+              <!-- Two Rounded Images Side-by-Side (1 – Před & 2 – Po) with Lightbox trigger -->
+              <div class="relative">
+                <div class="grid grid-cols-2 gap-2.5 sm:gap-3.5">
+                  
+                  <!-- Photo 1: Před -->
+                  <div onclick="openRealizationLightbox(0)" 
+                       role="button" 
+                       tabindex="0"
+                       id="card-realization-pred"
+                       aria-label="Zvětšit fotografii 1 – Před realizací"
+                       class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-900 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime">
+                    <img id="realization-img-pred" 
+                         src="Fotky Web/realizace/realizace-1-pred.jpg" 
+                         alt="Před realizací" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div class="bg-black/75 rounded-full p-2 text-white shadow-lg transform group-hover:scale-110 transition-transform">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                      </div>
+                    </div>
+                    <span class="absolute bottom-2 left-2 bg-black/85 backdrop-blur-sm text-white font-bold text-[11px] sm:text-xs px-2.5 py-0.5 rounded-md shadow border border-white/20">
+                      1 – Před
+                    </span>
+                    <span class="absolute top-2 right-2 bg-black/75 backdrop-blur-sm text-white text-[10px] font-medium px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline-block shadow">
+                      Zvětšit ⤢
+                    </span>
                   </div>
+
+                  <!-- Photo 2: Po -->
+                  <div onclick="openRealizationLightbox(1)" 
+                       role="button" 
+                       tabindex="0"
+                       id="card-realization-po"
+                       aria-label="Zvětšit fotografii 2 – Po realizaci"
+                       class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-900 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime">
+                    <img id="realization-img-po" 
+                         src="Fotky Web/realizace/realizace-1-po.jpg" 
+                         alt="Po realizaci" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div class="bg-black/75 rounded-full p-2 text-brand-lime shadow-lg transform group-hover:scale-110 transition-transform">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                      </div>
+                    </div>
+                    <span class="absolute bottom-2 left-2 bg-black/85 backdrop-blur-sm text-brand-lime font-bold text-[11px] sm:text-xs px-2.5 py-0.5 rounded-md shadow border border-brand-lime/30">
+                      2 – Po
+                    </span>
+                    <span class="absolute top-2 right-2 bg-black/75 backdrop-blur-sm text-brand-lime text-[10px] font-medium px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline-block shadow">
+                      Zvětšit ⤢
+                    </span>
+                  </div>
+
                 </div>
-                <span class="absolute bottom-2 left-2 bg-black/80 backdrop-blur-sm text-white font-bold text-[11px] px-2.5 py-0.5 rounded-md shadow">
-                  Před
-                </span>
-                <span class="absolute top-2 right-2 bg-black/70 text-white text-[10px] font-medium px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline-block shadow">
-                  Zvětšit ⤢
-                </span>
+
+                <!-- Floating Prev / Next Navigation Arrows -->
+                <button type="button" 
+                        onclick="prevRealizationSlide()" 
+                        aria-label="Předchozí realizace"
+                        title="Předchozí realizace"
+                        class="absolute -left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center shadow-lg border border-white/20 transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-lime z-10">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button type="button" 
+                        onclick="nextRealizationSlide()" 
+                        aria-label="Další realizace"
+                        title="Další realizace"
+                        class="absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center shadow-lg border border-white/20 transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-lime z-10">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                </button>
               </div>
 
-              <!-- Photo 2: Po -->
-              <div onclick="openLightbox(1)" 
-                   role="button" 
-                   tabindex="0"
-                   aria-label="Zvětšit fotografii Po realizaci"
-                   class="relative rounded-xl overflow-hidden shadow-sm aspect-[4/3] bg-gray-100 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime">
-                <img src="Fotky Web/realizace-po.jpg" alt="Po realizaci" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div class="bg-black/75 rounded-full p-2 text-brand-lime shadow-lg transform group-hover:scale-110 transition-transform">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
-                  </div>
+              <!-- Sleek Autoplay Progress Bar -->
+              <div class="w-full bg-gray-200/80 h-1 rounded-full mt-3 overflow-hidden">
+                <div id="realization-progress-bar" class="h-full bg-brand-lime transition-all duration-100 ease-linear" style="width: 0%;"></div>
+              </div>
+
+              <!-- Dynamic Caption & Title -->
+              <div class="mt-2.5 text-center min-h-[44px] flex flex-col justify-center px-1">
+                <p id="realization-title" class="text-xs sm:text-sm font-bold text-gray-900 transition-opacity duration-300">
+                  Likvidace náletových dřevin před domem
+                </p>
+                <p id="realization-subtitle" class="text-[11px] sm:text-xs text-gray-600 mt-0.5 transition-opacity duration-300">
+                  Odstranění přerostlých náletových dřevin a vyčištění pozemku u domu
+                </p>
+              </div>
+
+              <!-- Navigation Dots & Play/Pause Control -->
+              <div class="flex items-center justify-center gap-1.5 mt-2">
+                <div id="realization-dots" class="flex items-center gap-1.5">
+                  <!-- Generated by JavaScript -->
                 </div>
-                <span class="absolute bottom-2 left-2 bg-black/80 backdrop-blur-sm text-brand-lime font-bold text-[11px] px-2.5 py-0.5 rounded-md shadow">
-                  Po
-                </span>
-                <span class="absolute top-2 right-2 bg-black/70 text-brand-lime text-[10px] font-medium px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline-block shadow">
-                  Zvětšit ⤢
-                </span>
+                <button type="button" 
+                        id="realization-play-btn" 
+                        onclick="toggleRealizationAutoplay()" 
+                        aria-label="Pozastavit automatické posouvání" 
+                        title="Pozastavit / Spustit automatické posouvání"
+                        class="ml-2 text-gray-400 hover:text-gray-700 p-1 rounded transition-colors focus:outline-none">
+                  <svg id="realization-pause-icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                  <svg id="realization-play-icon" class="w-3.5 h-3.5 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                </button>
               </div>
 
             </div>
-
-            <!-- Caption below matching Image 2 -->
-            <p id="realization-caption" class="text-xs sm:text-sm font-bold text-gray-800 mt-4 text-center">
-              Likvidace náletových dřevin – Hodonínsko, 4 100 m²
-            </p>
-            <p class="text-[11px] text-gray-500 text-center mt-1">
-              Klikněte na fotku pro otevření zvětšeného náhledu
-            </p>
-
           </div>
         </div>
 
@@ -1578,31 +1640,316 @@
     }
 
     // ----------------------------------------------------
-    // 3. Realization Lightbox Modal Functionality
+    // 3. Realization Before/After Carousel & Lightbox
     // ----------------------------------------------------
-    const realizationImages = [
+    const realizationProjects = [
       {
-        src: "Fotky Web/realizace-pred.jpg",
-        badge: "Před realizací",
-        caption: "Likvidace náletových dřevin – Hodonínsko, 4 100 m² (Před zahájením prací)"
+        num: "1",
+        title: "Likvidace náletových dřevin před domem",
+        desc: "Odstranění přerostlých náletových dřevin a vyčištění pozemku u domu",
+        pred: "Fotky Web/realizace/realizace-1-pred.jpg",
+        po: "Fotky Web/realizace/realizace-1-po.jpg"
       },
       {
-        src: "Fotky Web/realizace-po.jpg",
-        badge: "Po realizaci",
-        caption: "Likvidace náletových dřevin – Hodonínsko, 4 100 m² (Po kompletním vyčištění)"
+        num: "2",
+        title: "Sečení trávy pod fotovoltaikou (FVE)",
+        desc: "Bezpečná a šetrná údržba zeleně pod solárními panely bez rizika poškození techniky",
+        pred: "Fotky Web/realizace/realizace-2-pred.jpg",
+        po: "Fotky Web/realizace/realizace-2-po.jpg"
+      },
+      {
+        num: "4",
+        title: "Mulčování přerostlé trávy na louce u domu",
+        desc: "Zpracování vysoké a husté trávy výkonnou mulčovací technikou přímo na jemný mulč",
+        pred: "Fotky Web/realizace/realizace-4-pred.jpg",
+        po: "Fotky Web/realizace/realizace-4-po.jpg"
+      },
+      {
+        num: "6",
+        title: "Mulčování vysoké trávy v náročném terénu",
+        desc: "Likvidace nepoddajné vegetace a vysoké trávy moderní svahovou technikou",
+        pred: "Fotky Web/realizace/realizace-6-pred.jpg",
+        po: "Fotky Web/realizace/realizace-6-po.jpg"
+      },
+      {
+        num: "9",
+        title: "Údržba zeleně stavebního pozemku",
+        desc: "Kompletní příprava stavební parcely a vyčištění plochy před výstavbou",
+        pred: "Fotky Web/realizace/realizace-9-pred.jpg",
+        po: "Fotky Web/realizace/realizace-9-po.jpg"
+      },
+      {
+        num: "13",
+        title: "Údržba zeleně ve firemním areálu",
+        desc: "Reprezentativní a spolehlivá péče o rozsáhlé travnaté plochy areálů firem",
+        pred: "Fotky Web/realizace/realizace-13-pred.jpg",
+        po: "Fotky Web/realizace/realizace-13-po.jpg"
+      },
+      {
+        num: "19",
+        title: "Mulčování areálu fotovoltaické elektrárny",
+        desc: "Efektivní velkoplošné mulčování fotovoltaických parků pro bezpečný a spolehlivý chod",
+        pred: "Fotky Web/realizace/realizace-19-po.jpg",
+        po: "Fotky Web/realizace/realizace-19-pred.jpg"
       }
     ];
 
-    let currentLbIndex = 0;
+    // Preload all realization images for instant, smooth display
+    try {
+      realizationProjects.forEach(proj => {
+        const imgP = new Image(); imgP.src = proj.pred;
+        const imgA = new Image(); imgA.src = proj.po;
+      });
+    } catch (e) {}
 
-    function openLightbox(index) {
-      currentLbIndex = index;
-      const modal = document.getElementById('lightbox-modal');
-      if (!modal) return;
+    let currentSlideIndex = 0;
+    let isAutoplayRunning = true;
+    let isHoverPaused = false;
+    const SLIDE_DURATION = 5000; // 5 seconds per slide
+    let progressStartTime = performance.now();
+    let elapsedBeforePause = 0;
+    let progressAnimFrame = null;
+
+    // Render navigation dots
+    function renderRealizationDots() {
+      const container = document.getElementById('realization-dots');
+      if (!container) return;
+      container.innerHTML = '';
+
+      realizationProjects.forEach((proj, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Přejít na projekt ${idx + 1}: ${proj.title}`);
+        dot.className = idx === currentSlideIndex
+          ? 'w-6 h-2 bg-brand-lime rounded-full transition-all duration-300 shadow-sm'
+          : 'w-2 h-2 bg-gray-300 hover:bg-gray-400 rounded-full transition-all duration-300';
+        dot.addEventListener('click', () => {
+          goToRealizationSlide(idx);
+        });
+        container.appendChild(dot);
+      });
+    }
+
+    function updateRealizationUI(animate = true) {
+      const proj = realizationProjects[currentSlideIndex];
+      if (!proj) return;
+
+      const imgPred = document.getElementById('realization-img-pred');
+      const imgPo = document.getElementById('realization-img-po');
+      const titleEl = document.getElementById('realization-title');
+      const subtitleEl = document.getElementById('realization-subtitle');
+      const badgeCounter = document.getElementById('realization-counter-badge');
+
+      if (badgeCounter) {
+        badgeCounter.textContent = `${currentSlideIndex + 1} / ${realizationProjects.length}`;
+      }
+
+      if (animate && imgPred && imgPo) {
+        imgPred.style.opacity = '0.5';
+        imgPo.style.opacity = '0.5';
+        if (titleEl) titleEl.style.opacity = '0.3';
+        if (subtitleEl) subtitleEl.style.opacity = '0.3';
+
+        setTimeout(() => {
+          imgPred.src = proj.pred;
+          imgPred.alt = `Před realizací: ${proj.title}`;
+          imgPo.src = proj.po;
+          imgPo.alt = `Po realizaci: ${proj.title}`;
+          if (titleEl) titleEl.textContent = proj.title;
+          if (subtitleEl) subtitleEl.textContent = proj.desc;
+
+          imgPred.style.opacity = '1';
+          imgPo.style.opacity = '1';
+          if (titleEl) titleEl.style.opacity = '1';
+          if (subtitleEl) subtitleEl.style.opacity = '1';
+        }, 120);
+      } else {
+        if (imgPred) {
+          imgPred.src = proj.pred;
+          imgPred.alt = `Před realizací: ${proj.title}`;
+        }
+        if (imgPo) {
+          imgPo.src = proj.po;
+          imgPo.alt = `Po realizaci: ${proj.title}`;
+        }
+        if (titleEl) titleEl.textContent = proj.title;
+        if (subtitleEl) subtitleEl.textContent = proj.desc;
+      }
+
+      // Update dots
+      const container = document.getElementById('realization-dots');
+      if (container) {
+        const dots = container.querySelectorAll('button');
+        dots.forEach((dot, idx) => {
+          dot.className = idx === currentSlideIndex
+            ? 'w-6 h-2 bg-brand-lime rounded-full transition-all duration-300 shadow-sm'
+            : 'w-2 h-2 bg-gray-300 hover:bg-gray-400 rounded-full transition-all duration-300';
+        });
+      }
+    }
+
+    function resetAutoplayProgress() {
+      progressStartTime = performance.now();
+      elapsedBeforePause = 0;
+      const bar = document.getElementById('realization-progress-bar');
+      if (bar) bar.style.width = '0%';
+    }
+
+    function animateProgress(now) {
+      if (!isAutoplayRunning || isHoverPaused) return;
+
+      const elapsed = (now - progressStartTime) + elapsedBeforePause;
+      const progressPercent = Math.min(100, (elapsed / SLIDE_DURATION) * 100);
+
+      const bar = document.getElementById('realization-progress-bar');
+      if (bar) {
+        bar.style.width = `${progressPercent}%`;
+      }
+
+      if (elapsed >= SLIDE_DURATION) {
+        nextRealizationSlide();
+      } else {
+        progressAnimFrame = requestAnimationFrame(animateProgress);
+      }
+    }
+
+    function startProgressLoop() {
+      if (progressAnimFrame) cancelAnimationFrame(progressAnimFrame);
+      progressStartTime = performance.now();
+      progressAnimFrame = requestAnimationFrame(animateProgress);
+    }
+
+    function stopProgressLoop() {
+      if (progressAnimFrame) {
+        cancelAnimationFrame(progressAnimFrame);
+        progressAnimFrame = null;
+      }
+    }
+
+    function nextRealizationSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % realizationProjects.length;
+      updateRealizationUI(true);
+      resetAutoplayProgress();
+      if (isAutoplayRunning && !isHoverPaused) {
+        startProgressLoop();
+      }
+    }
+
+    function prevRealizationSlide() {
+      currentSlideIndex = (currentSlideIndex - 1 + realizationProjects.length) % realizationProjects.length;
+      updateRealizationUI(true);
+      resetAutoplayProgress();
+      if (isAutoplayRunning && !isHoverPaused) {
+        startProgressLoop();
+      }
+    }
+
+    function goToRealizationSlide(index) {
+      currentSlideIndex = index;
+      updateRealizationUI(true);
+      resetAutoplayProgress();
+      if (isAutoplayRunning && !isHoverPaused) {
+        startProgressLoop();
+      }
+    }
+
+    function toggleRealizationAutoplay() {
+      isAutoplayRunning = !isAutoplayRunning;
+      const pauseIcon = document.getElementById('realization-pause-icon');
+      const playIcon = document.getElementById('realization-play-icon');
+      const playBtn = document.getElementById('realization-play-btn');
+
+      if (isAutoplayRunning) {
+        if (pauseIcon) pauseIcon.classList.remove('hidden');
+        if (playIcon) playIcon.classList.add('hidden');
+        if (playBtn) playBtn.setAttribute('aria-label', 'Pozastavit automatické posouvání');
+        progressStartTime = performance.now();
+        startProgressLoop();
+      } else {
+        if (pauseIcon) pauseIcon.classList.add('hidden');
+        if (playIcon) playIcon.classList.remove('hidden');
+        if (playBtn) playBtn.setAttribute('aria-label', 'Spustit automatické posouvání');
+        stopProgressLoop();
+      }
+    }
+
+    // Carousel Hover & Touch Listeners
+    const carouselEl = document.getElementById('realization-carousel');
+    if (carouselEl) {
+      carouselEl.addEventListener('mouseenter', () => {
+        if (isAutoplayRunning) {
+          isHoverPaused = true;
+          elapsedBeforePause += performance.now() - progressStartTime;
+          stopProgressLoop();
+        }
+      });
+
+      carouselEl.addEventListener('mouseleave', () => {
+        if (isAutoplayRunning && isHoverPaused) {
+          isHoverPaused = false;
+          progressStartTime = performance.now();
+          startProgressLoop();
+        }
+      });
+
+      // Touch swipe support on mobile
+      let touchStartX = 0;
+      let touchStartY = 0;
+      carouselEl.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches[0]) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      carouselEl.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          const deltaX = e.changedTouches[0].clientX - touchStartX;
+          const deltaY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) {
+              nextRealizationSlide();
+            } else {
+              prevRealizationSlide();
+            }
+          }
+        }
+      }, { passive: true });
+    }
+
+    // Initialize dots and start carousel
+    renderRealizationDots();
+    startProgressLoop();
+
+    // ----------------------------------------------------
+    // Lightbox Modal for Realizations
+    // ----------------------------------------------------
+    let currentLbProjectIndex = 0;
+    let currentLbTab = 0; // 0 = Před, 1 = Po
+
+    function openRealizationLightbox(tabIndex = 0, projectIndex = null) {
+      currentLbProjectIndex = projectIndex !== null ? projectIndex : currentSlideIndex;
+      currentLbTab = tabIndex;
+
+      // Pause carousel while viewing modal
+      if (isAutoplayRunning) {
+        isHoverPaused = true;
+        stopProgressLoop();
+      }
+
       updateLightboxContent();
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Backward compatibility for existing callers
+    function openLightbox(tabIndex = 0) {
+      openRealizationLightbox(tabIndex);
     }
 
     function closeLightbox() {
@@ -1611,61 +1958,118 @@
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       document.body.style.overflow = '';
+
+      // Resume carousel if still running
+      if (isAutoplayRunning) {
+        isHoverPaused = false;
+        progressStartTime = performance.now();
+        startProgressLoop();
+      }
     }
 
-    function switchLightboxTab(index) {
-      currentLbIndex = index;
+    function switchLightboxTab(tabIndex) {
+      currentLbTab = tabIndex;
+      updateLightboxContent();
+    }
+
+    function nextLightboxProject() {
+      currentLbProjectIndex = (currentLbProjectIndex + 1) % realizationProjects.length;
+      updateLightboxContent();
+    }
+
+    function prevLightboxProject() {
+      currentLbProjectIndex = (currentLbProjectIndex - 1 + realizationProjects.length) % realizationProjects.length;
       updateLightboxContent();
     }
 
     function updateLightboxContent() {
-      const item = realizationImages[currentLbIndex];
-      if (!item) return;
+      const proj = realizationProjects[currentLbProjectIndex];
+      if (!proj) return;
 
       const img = document.getElementById('lightbox-img');
       const badge = document.getElementById('lb-badge');
+      const counterBadge = document.getElementById('lb-counter-badge');
+      const projectTitle = document.getElementById('lb-project-title');
       const caption = document.getElementById('lightbox-caption');
+      const subcaption = document.getElementById('lightbox-subcaption');
       const btnPred = document.getElementById('lb-btn-pred');
       const btnPo = document.getElementById('lb-btn-po');
 
+      const isPo = currentLbTab === 1;
+      const imgSrc = isPo ? proj.po : proj.pred;
+      const badgeText = isPo ? "2 – Po realizaci" : "1 – Před realizací";
+
       if (img) {
-        img.src = item.src;
-        img.alt = item.badge;
+        img.style.opacity = '0.5';
+        setTimeout(() => {
+          img.src = imgSrc;
+          img.alt = `${proj.title} (${badgeText})`;
+          img.style.opacity = '1';
+        }, 80);
       }
+
+      if (counterBadge) {
+        counterBadge.textContent = `Projekt ${currentLbProjectIndex + 1} / ${realizationProjects.length}`;
+      }
+
+      if (projectTitle) {
+        projectTitle.textContent = proj.title;
+      }
+
       if (badge) {
-        badge.textContent = item.badge;
-        if (currentLbIndex === 1) {
-          badge.className = "text-xs font-bold px-2.5 py-1 rounded bg-black/60 border border-brand-lime/40 text-brand-lime";
+        badge.textContent = badgeText;
+        if (isPo) {
+          badge.className = "absolute bottom-3 left-3 text-xs font-bold px-3 py-1 rounded-md bg-black/85 backdrop-blur-sm border border-brand-lime/40 text-brand-lime shadow-lg";
         } else {
-          badge.className = "text-xs font-bold px-2.5 py-1 rounded bg-black/60 border border-white/30 text-white";
+          badge.className = "absolute bottom-3 left-3 text-xs font-bold px-3 py-1 rounded-md bg-black/85 backdrop-blur-sm border border-white/30 text-white shadow-lg";
         }
       }
+
       if (caption) {
-        caption.textContent = item.caption;
+        caption.textContent = `${proj.title} – ${badgeText}`;
+      }
+
+      if (subcaption) {
+        subcaption.textContent = proj.desc;
       }
 
       if (btnPred && btnPo) {
-        if (currentLbIndex === 0) {
-          btnPred.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-black shadow";
-          btnPo.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20";
+        if (!isPo) {
+          btnPred.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-black shadow";
+          btnPo.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20";
         } else {
-          btnPred.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20";
-          btnPo.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-lime text-black font-extrabold shadow";
+          btnPred.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20";
+          btnPo.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-lime text-black font-extrabold shadow";
         }
       }
     }
 
-    // Keyboard navigation for Lightbox (Escape to close, arrows to switch)
+    // Keyboard navigation
     window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('lightbox-modal');
-      if (!modal || modal.classList.contains('hidden')) return;
+      const isModalOpen = modal && !modal.classList.contains('hidden');
 
-      if (e.key === 'Escape') {
-        closeLightbox();
-      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        switchLightboxTab(1);
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        switchLightboxTab(0);
+      if (isModalOpen) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === '1') {
+          switchLightboxTab(0);
+        } else if (e.key === '2' || e.code === 'Space') {
+          e.preventDefault();
+          switchLightboxTab(currentLbTab === 0 ? 1 : 0);
+        } else if (e.key === 'ArrowRight') {
+          if (currentLbTab === 0) {
+            switchLightboxTab(1);
+          } else {
+            nextLightboxProject();
+          }
+        } else if (e.key === 'ArrowLeft') {
+          if (currentLbTab === 1) {
+            switchLightboxTab(0);
+          } else {
+            prevLightboxProject();
+          }
+        }
       }
     });
 
@@ -1757,7 +2161,7 @@
   <!-- LIGHTBOX MODAL FOR REALIZACE IMAGES                                       -->
   <!-- ========================================================================= -->
   <div id="lightbox-modal" 
-       class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6" 
+       class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6" 
        role="dialog" 
        aria-modal="true" 
        aria-label="Zvětšený náhled realizace"
@@ -1767,40 +2171,73 @@
     <button type="button" 
             onclick="closeLightbox()" 
             class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2.5 rounded-full transition-colors z-20 focus:outline-none focus:ring-2 focus:ring-brand-lime" 
-            aria-label="Zavřít">
+            aria-label="Zavřít okno">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
 
     <!-- Modal Content Box -->
     <div class="relative max-w-4xl w-full flex flex-col items-center">
       
-      <!-- Top controls & tabs: Před / Po -->
-      <div class="w-full flex items-center justify-between mb-3 text-white px-1">
+      <!-- Top controls & tabs: Před / Po & Project Counter -->
+      <div class="w-full flex flex-wrap items-center justify-between gap-3 mb-3 text-white px-1">
+        <div class="flex items-center gap-2">
+          <span id="lb-counter-badge" class="text-xs font-bold px-2.5 py-1 rounded bg-white/10 text-brand-lime border border-brand-lime/30">
+            Projekt 1 / 7
+          </span>
+          <span id="lb-project-title" class="text-xs sm:text-sm font-semibold text-gray-200 hidden sm:inline-block">
+            Likvidace náletových dřevin před domem
+          </span>
+        </div>
+
         <div class="flex items-center gap-2">
           <button id="lb-btn-pred" type="button" onclick="switchLightboxTab(0)" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-black shadow">
-            Před
+            1 – Před
           </button>
           <button id="lb-btn-po" type="button" onclick="switchLightboxTab(1)" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white/10 text-white hover:bg-white/20">
-            Po
+            2 – Po
           </button>
         </div>
-        <span id="lb-badge" class="text-xs font-bold px-2.5 py-1 rounded bg-black/60 border border-white/20 text-white">
-          Před realizací
+      </div>
+
+      <!-- Image container with Prev / Next arrows -->
+      <div class="relative rounded-2xl overflow-hidden bg-black/60 border border-white/10 shadow-2xl max-h-[70vh] sm:max-h-[75vh] flex items-center justify-center w-full group/modal-img">
+        <img id="lightbox-img" 
+             src="Fotky Web/realizace/realizace-1-pred.jpg" 
+             alt="Zvětšená realizace" 
+             class="max-h-[70vh] sm:max-h-[75vh] max-w-full object-contain select-none transition-all duration-300">
+
+        <!-- Badge inside image -->
+        <span id="lb-badge" class="absolute bottom-3 left-3 text-xs font-bold px-3 py-1 rounded-md bg-black/85 backdrop-blur-sm border border-white/30 text-white shadow-lg">
+          1 – Před realizací
         </span>
+
+        <!-- Inside Modal Left & Right Navigation Arrows for Project Switching -->
+        <button type="button" 
+                onclick="prevLightboxProject()" 
+                aria-label="Předchozí projekt"
+                title="Předchozí realizace (šipka vlevo)"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/75 hover:bg-black text-white flex items-center justify-center shadow-lg border border-white/20 transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-lime z-10">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button type="button" 
+                onclick="nextLightboxProject()" 
+                aria-label="Další projekt"
+                title="Další realizace (šipka vpravo)"
+                class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/75 hover:bg-black text-white flex items-center justify-center shadow-lg border border-white/20 transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-lime z-10">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+        </button>
       </div>
 
-      <!-- Image container -->
-      <div class="relative rounded-2xl overflow-hidden bg-black/50 border border-white/10 shadow-2xl max-h-[70vh] sm:max-h-[75vh] flex items-center justify-center w-full">
-        <img id="lightbox-img" src="Fotky Web/realizace-pred.jpg" alt="Zvětšená realizace" class="max-h-[70vh] sm:max-h-[75vh] max-w-full object-contain select-none transition-all duration-300">
-      </div>
-
-      <!-- Caption -->
-      <div class="mt-3.5 text-center px-4">
+      <!-- Caption & Controls Hint -->
+      <div class="mt-3.5 text-center px-4 w-full">
         <p id="lightbox-caption" class="text-sm sm:text-base font-semibold text-white drop-shadow">
-          Likvidace náletových dřevin – Hodonínsko, 4 100 m²
+          Likvidace náletových dřevin před domem – Před realizací
         </p>
-        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">
-          Použijte tlačítka nahoře nebo šipky na klávesnici (← / →) pro přepnutí Před / Po • Klávesa ESC zavře okno
+        <p id="lightbox-subcaption" class="text-xs text-gray-300 mt-0.5">
+          Odstranění přerostlých náletových dřevin a vyčištění pozemku u domu
+        </p>
+        <p class="text-[11px] sm:text-xs text-gray-400 mt-2">
+          Přepnutí: klávesy [1] a [2] nebo mezerník • Šipky [←] a [→] pro projekty • Klávesa ESC zavře okno
         </p>
       </div>
 
