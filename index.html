@@ -1601,8 +1601,8 @@
         <!-- Left / Form Card (lg:col-span-8) -->
         <div class="lg:col-span-8 bg-white rounded-2xl p-6 sm:p-8 shadow-2xl text-gray-800 flex flex-col justify-between">
             
-            <!-- Contact Form redirected to stepan.istvanek@gmail.com via FormSubmit -->
-            <form id="contact-form" action="https://formsubmit.co/stepan.istvanek@gmail.com" method="POST" enctype="multipart/form-data">
+            <!-- Contact Form to kosturik.zalko@seznam.cz via FormSubmit -->
+            <form id="contact-form" action="https://formsubmit.co/kosturik.zalko@seznam.cz" method="POST" enctype="multipart/form-data">
               
               <!-- FormSubmit Configuration -->
               <input type="hidden" name="_subject" value="Nová poptávka z webu ZALKO.cz">
@@ -2401,7 +2401,7 @@
     }
 
     // ----------------------------------------------------
-    // 6. FormSubmit Functional AJAX Submission to stepan.istvanek@gmail.com
+    // 6. FormSubmit Functional AJAX Submission to kosturik.zalko@seznam.cz
     // ----------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -2427,7 +2427,7 @@
         }
 
         try {
-          const response = await fetch('https://formsubmit.co/ajax/stepan.istvanek@gmail.com', {
+          const response = await fetch('https://formsubmit.co/ajax/kosturik.zalko@seznam.cz', {
             method: 'POST',
             headers: {
               'Accept': 'application/json'
@@ -2449,7 +2449,7 @@
             formResult.className = "mt-4 p-4 rounded-xl text-sm font-medium bg-amber-50 text-amber-900 border border-amber-300 block shadow-sm";
           }
         } catch (error) {
-          formResult.innerHTML = "<span class=\"font-bold text-red-900 block text-base mb-1\">Chyba spojení</span>Nepodařilo se navázat spojení se serverem. Kontaktujte nás prosím přímo na tel. <strong>+420 605 283 963</strong> nebo e-mailem na <strong>stepan.istvanek@gmail.com</strong>.";
+          formResult.innerHTML = "<span class=\"font-bold text-red-900 block text-base mb-1\">Chyba spojení</span>Nepodařilo se navázat spojení se serverem. Kontaktujte nás prosím přímo na tel. <strong>+420 605 283 963</strong> nebo e-mailem na <strong>kosturik.zalko@seznam.cz</strong>.";
           formResult.className = "mt-4 p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-300 block shadow-sm";
         } finally {
           submitBtn.disabled = false;
