@@ -194,6 +194,14 @@
                 "name": "Prodej štěpky",
                 "description": "Kvalitní dřevní štěpka do okrasných záhonů a okolo stromů."
               }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Likvidace dřevní hmoty",
+                "description": "Likvidace velkého množství dřevního odpadu – podrcení a odvoz."
+              }
             }
           ]
         }
@@ -695,14 +703,31 @@
           </div>
         </div>
 
-        <!-- Card 9: Special CTA Card (Potřebujete jinou službu?) -->
-        <div class="border-2 border-dashed border-gray-300 hover:border-brand-lime bg-[#f8faf9] rounded-xl p-5 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all h-56 sm:h-60 group cursor-pointer" onclick="preselectService('Jiná služba')">
-          <div class="w-12 h-12 rounded-full bg-brand-lime/15 text-[#113a1a] flex items-center justify-center mb-3 group-hover:bg-brand-lime group-hover:text-black transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <!-- Card 9: Likvidace dřevní hmoty -->
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Likvidace dřevní hmoty')">
+          <img src="Fotky Web/služby fotky/likvidace dřevní hmoty.jpg" alt="Likvidace dřevní hmoty" class="card-zoom-img w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
+            <div class="pr-2">
+              <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Likvidace dřevní hmoty</h3>
+              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Velké množství dřevního odpadu? Přijedeme – podrtíme – odvezeme.</p>
+            </div>
+            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
           </div>
-          <h3 class="text-gray-900 font-bold text-base">Potřebujete jinou službu?</h3>
-          <p class="text-gray-500 text-xs sm:text-sm mt-1">Neváhejte nás kontaktovat,<br>rádi vám poradíme.</p>
-          <a href="#poptavka" class="mt-3 text-xs sm:text-sm font-bold text-[#14532d] hover:text-black flex items-center gap-1 group-hover:underline">
+        </div>
+
+        <!-- Card 10: Special CTA Card (Potřebujete jinou službu?) -->
+        <div class="sm:col-span-2 lg:col-span-3 border-2 border-dashed border-gray-300 hover:border-brand-lime bg-[#f8faf9] rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm hover:shadow-md transition-all group cursor-pointer" onclick="preselectService('Jiná služba')">
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-brand-lime/15 text-[#113a1a] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-lime group-hover:text-black transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-gray-900 font-bold text-base sm:text-lg">Potřebujete jinou službu nebo individuální řešení?</h3>
+              <p class="text-gray-500 text-xs sm:text-sm mt-0.5">Neváhejte nás kontaktovat, rádi vám poradíme a připravíme nezávaznou nabídku na míru.</p>
+            </div>
+          </div>
+          <a href="#poptavka" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-dark text-white font-bold text-xs sm:text-sm group-hover:bg-brand-lime group-hover:text-black transition-all flex-shrink-0 shadow-xs">
             <span>Kontaktovat nás</span>
             <span>→</span>
           </a>
@@ -1715,6 +1740,7 @@
                       <option value="Údržba zeleně FVE">Údržba zeleně FVE</option>
                       <option value="Zemní práce">Zemní práce a odstranění pařezů</option>
                       <option value="Prodej štěpky">Prodej štěpky</option>
+                      <option value="Likvidace dřevní hmoty">Likvidace dřevní hmoty</option>
                       <option value="Jiná služba">Jiná služba / konzultace</option>
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-gray-500">
