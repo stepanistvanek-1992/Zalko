@@ -27,24 +27,17 @@
   <!-- <meta name="google-site-verification" content="SEM_VLOZTE_OVEROVACI_KOD_Z_SEARCH_CONSOLE"> -->
 
   <!-- ========================================================================= -->
-  <!-- GOOGLE TAG MANAGER (GTM) / GOOGLE ANALYTICS 4 (GA4)                       -->
+  <!-- GOOGLE TAG (gtag.js) - Google Ads                                         -->
   <!-- ========================================================================= -->
-  <!-- Varianta A: Google Tag Manager (GTM) – doporučeno:
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  -->
-  <!-- Varianta B: Přímý kód Google Analytics 4 (GA4):
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11552486279"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+
+    gtag('config', 'AW-11552486279');
   </script>
-  -->
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
@@ -2562,6 +2555,14 @@
             formResult.className = "mt-4 p-4 rounded-xl text-sm font-medium bg-green-50 text-green-800 border border-green-300 block shadow-sm";
             contactForm.reset();
             updateFileLabel({ files: [] });
+
+            // Google Ads / Analytics Conversion Event
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'form',
+                event_label: 'poptavka_odeslana'
+              });
+            }
           } else {
             const errorMsg = data && data.message ? data.message : "Zprávu se nepodařilo odeslat.";
             formResult.innerHTML = `<span class=\"font-bold text-amber-900 block text-base mb-1\">! Upozornění při odesílání</span>${errorMsg}<br><span class=\"text-xs text-amber-800 mt-2 block font-normal\">V případě spěchu volejte prosím přímo na tel. <strong>+420 605 283 963</strong>.</span>`;
