@@ -365,6 +365,21 @@
     .service-card:hover .card-zoom-img {
       transform: scale(1.06);
     }
+
+    /* Service detail modal animation */
+    @keyframes service-modal-scale-in {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    .animate-service-modal {
+      animation: service-modal-scale-in 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-brand-lime selection:text-black">
@@ -641,21 +656,24 @@
       <!-- Services Grid: 3 columns on desktop, 2 on tablet, 1 on mobile (total 9 cards: 8 services + 1 contact CTA) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
 
-        <!-- Card 1: Sečení pozemků -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Sečení pozemků')">
-          <img src="Fotky Web/služby fotky/sečení pozemků.jpg" alt="Sečení pozemků křovinořezem" class="card-zoom-img w-full h-full object-cover">
+        <!-- Card 1: Sečení trávy -->
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('seceni-travy')">
+          <img src="Fotky Web/služby fotky/sečení pozemků.jpg" alt="Sečení trávy" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
             <div class="pr-2">
-              <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Sečení pozemků</h3>
+              <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Sečení trávy</h3>
               <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Sečení křovinořezem, kde není jiná možnost</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 2: Mulčování pozemků -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Mulčování pozemků')">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('mulcovani-pozemku')">
           <img src="Fotky Web/služby fotky/Mulčování pozemků - pokud bude dobře vypadat.jpg" alt="Mulčování pozemků" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
@@ -663,25 +681,31 @@
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Mulčování pozemků</h3>
               <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Vysoká tráva, drobné náletové dřeviny</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 3: Likvidace náletových dřevin -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Likvidace náletových dřevin')">
-          <img src="Fotky Web/IMG_20240307_131939-scaled.jpg" alt="Likvidace náletových dřevin" class="card-zoom-img w-full h-full object-cover">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('likvidace-naletovych-drevin')">
+          <img src="Fotky Web/IMG_20240307_131939-scaled.jpg" alt="Likvidace náletových dřevin a vyčištění zarostlých pozemků" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
             <div class="pr-2">
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Likvidace náletových dřevin</h3>
-              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Vyřezávání, kácení, štěpkování, frézování lesní frézou, odvoz, včetně tújí a keřů na zahradě</p>
+              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Vyřezávání, kácení, štěpkování, frézování lesní frézou, odvoz</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 4: Rizikové kácení -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Rizikové kácení')">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('rizikove-kaceni')">
           <img src="Fotky Web/rizikove-kaceni-stromu-scaled.jpg" alt="Rizikové kácení stromů" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
@@ -689,51 +713,63 @@
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Rizikové kácení</h3>
               <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Stromy, blízkost staveb, těžko dostupná místa</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
-        <!-- Card 5: Údržba areálů -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Údržba areálů')">
-          <img src="Fotky Web/služby fotky/údržba areálů.jpg" alt="Údržba firemních a obecních areálů" class="card-zoom-img w-full h-full object-cover">
+        <!-- Card 5: Údržba firemních areálů -->
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('udrzba-arealu')">
+          <img src="Fotky Web/služby fotky/údržba areálů.jpg" alt="Údržba firemních areálů" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
             <div class="pr-2">
-              <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Údržba areálů</h3>
-              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Firmy, obce, průmyslové objekty</p>
+              <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Údržba firemních areálů</h3>
+              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Firmy, obce, komerční a průmyslové objekty</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 6: Údržba zeleně FVE -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Údržba zeleně FVE')">
-          <img src="Fotky Web/služby fotky/údržba fve.jpg" alt="Pravidelná údržba zeleně na fotovoltaických elektrárnách" class="card-zoom-img w-full h-full object-cover">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('udrzba-fve')">
+          <img src="Fotky Web/služby fotky/údržba fve.jpg" alt="Údržba zeleně ve fotovoltaických elektrárnách" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
             <div class="pr-2">
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Údržba zeleně FVE</h3>
               <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Pravidelná údržba zeleně na fotovoltaických elektrárnách</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 7: Zemní práce -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Zemní práce')">
-          <img src="Fotky Web/služby fotky/zemní práce.jpg" alt="Zemní práce minibagrem - srovnání terénu a odstranění pařezů" class="card-zoom-img w-full h-full object-cover">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('zemni-prace')">
+          <img src="Fotky Web/služby fotky/zemní práce.jpg" alt="Zemní práce - srovnání terénu a vykopání pařezů" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
             <div class="pr-2">
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Zemní práce</h3>
-              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Srovnání terénu, odstranění pařezů</p>
+              <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Srovnání terénu, vykopání pařezů</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 8: Prodej štěpky -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Prodej štěpky')">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('prodej-stepky')">
           <img src="Fotky Web/služby fotky/prodej štěpky.jpg" alt="Prodej štěpky do okrasných záhonů a okolo stromů" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
@@ -741,12 +777,15 @@
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Prodej štěpky</h3>
               <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Do okrasných záhonů a okolo stromů</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
         <!-- Card 9: Likvidace dřevní hmoty -->
-        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="preselectService('Likvidace dřevní hmoty')">
+        <div class="service-card group relative bg-gray-900 rounded-xl overflow-hidden shadow-md cursor-pointer h-56 sm:h-60" onclick="openServiceModal('likvidace-dreva')">
           <img src="Fotky Web/služby fotky/likvidace dřevní hmoty.jpg" alt="Likvidace dřevní hmoty" class="card-zoom-img w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
@@ -754,7 +793,10 @@
               <h3 class="text-white font-bold text-base sm:text-lg leading-tight">Likvidace dřevní hmoty</h3>
               <p class="text-brand-accent text-xs sm:text-sm mt-1.5 font-medium leading-snug">Velké množství dřevního odpadu? Přijedeme – podrtíme – odvezeme.</p>
             </div>
-            <span class="text-brand-lime transform group-hover:translate-x-1 transition-transform ml-2 text-base flex-shrink-0">→</span>
+            <span class="text-brand-lime text-xs font-semibold flex items-center gap-1 group-hover:text-white transition-colors ml-2 flex-shrink-0">
+              <span>Zjistit více</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+            </span>
           </div>
         </div>
 
@@ -2500,13 +2542,25 @@
 
     // Keyboard navigation
     window.addEventListener('keydown', (e) => {
+      const svcModal = document.getElementById('service-modal');
+      const isSvcModalOpen = svcModal && !svcModal.classList.contains('hidden');
+
       const modal = document.getElementById('lightbox-modal');
       const isModalOpen = modal && !modal.classList.contains('hidden');
 
-      if (isModalOpen) {
-        if (e.key === 'Escape') {
+      if (e.key === 'Escape') {
+        if (isSvcModalOpen) {
+          closeServiceModal();
+          return;
+        }
+        if (isModalOpen) {
           closeLightbox();
-        } else if (e.key === '1') {
+          return;
+        }
+      }
+
+      if (isModalOpen) {
+        if (e.key === '1') {
           switchLightboxTab(0);
         } else if (e.key === '2' || e.code === 'Space') {
           e.preventDefault();
@@ -2528,7 +2582,153 @@
     });
 
     // ----------------------------------------------------
-    // 4. Preselect Service from Cards and Scroll to Form
+    // 4. Service Details Popup Modal
+    // ----------------------------------------------------
+    const servicesData = {
+      'seceni-travy': {
+        title: 'Sečení trávy',
+        img: 'Fotky Web/služby fotky/sečení pozemků.jpg',
+        formValue: 'Sečení pozemků',
+        paragraphs: [
+          'Zajišťujeme sečení trávy na soukromých pozemcích, zahradách, loukách, firemních areálech, průmyslových plochách a dalších zatravněných pozemcích. Podle charakteru terénu a výšky porostu volíme vhodný způsob sečení, aby byla práce efektivní a výsledek odpovídal požadavkům zákazníka.',
+          'Provádíme jednorázové sečení přerostlé trávy i pravidelnou údržbu zeleně během vegetační sezóny. Pomáháme majitelům nemovitostí, firmám i dalším zákazníkům udržovat pozemky v dobrém stavu a předcházet jejich zarůstání.'
+        ]
+      },
+      'mulcovani-pozemku': {
+        title: 'Mulčování pozemků',
+        img: 'Fotky Web/služby fotky/Mulčování pozemků - pokud bude dobře vypadat.jpg',
+        formValue: 'Mulčování pozemků',
+        paragraphs: [
+          'Mulčování je vhodným řešením pro louky, neudržované pozemky, průmyslové a firemní areály, fotovoltaické elektrárny, zahrady, letiště, rozsáhlejší travnaté plochy a místa, kde je potřeba zvládnout hustou nebo vyšší vegetaci. Při mulčování dochází k rozmělnění travního porostu a další vegetace na menší části čímž pomáhá k rozkladu mulčovaného porostu.',
+          'Zajišťujeme mulčování pozemků na jižní Moravě i v Zlínském kraji využitím vhodné mechanizace podle podmínek na místě. Služba je vhodná pro všechny vlastníky pozemků, kterým vegetace přerůstla přes hlavu, a potřebují pravidelnou nebo jednorázovou údržbu.'
+        ]
+      },
+      'likvidace-naletovych-drevin': {
+        title: 'Likvidace náletových dřevin a vyčištění zarostlých pozemků',
+        img: 'Fotky Web/IMG_20240307_131939-scaled.jpg',
+        formValue: 'Likvidace náletových dřevin',
+        paragraphs: [
+          'Zarostlý pozemek nemusí být ztracený pozemek. Provádíme likvidaci náletových dřevin, odstraňování křovin, výřez nežádoucích dřevin a zpřístupnění dlouhodobě neudržovaných ploch. Práce přizpůsobujeme hustotě porostu, velikosti pozemku, přístupnosti terénu a požadavkům na výsledný stav. Ovšem děláme i menší práce, a můžete nám svěřit i likvidaci živého plotu nebo ovocných stromů na zahradě.',
+          'Pomáháme připravovat pozemky pro další využití, například pro stavební záměry, údržbu a zhodnocení nemovitostí nebo obnovu zarostlých ploch. Součástí řešení může být také mulčování, úklid vegetace a další navazující práce podle konkrétní dohody.'
+        ]
+      },
+      'rizikove-kaceni': {
+        title: 'Rizikové kácení',
+        img: 'Fotky Web/rizikove-kaceni-stromu-scaled.jpg',
+        formValue: 'Rizikové kácení',
+        paragraphs: [
+          'Zajišťujeme také vybrané práce spojené s odstraňováním dřevin, ořezy a rizikovým kácením stromů podle charakteru zakázky. Při posuzování práce zohledňujeme umístění stromů, okolní stavby, přístupnost pozemku i požadavkům na bezpečné provedení.',
+          'U náročnějších zásahů záleží na konkrétních podmínkách a potřebném vybavení. Rozsah prací a způsob realizace proto vždy domlouváme individuálně.'
+        ]
+      },
+      'udrzba-arealu': {
+        title: 'Údržba firemních areálů',
+        img: 'Fotky Web/služby fotky/údržba areálů.jpg',
+        formValue: 'Údržba areálů',
+        paragraphs: [
+          'Zajišťujeme pravidelnou i jednorázovou údržbu firemních areálů, průmyslových objektů a komerčních pozemků. Nabízíme sečení trávy, mulčování, likvidaci náletových dřevin a další práce spojené s údržbou venkovních ploch. Díky vlastní technice různých typů dokážeme efektivně udržovat menší areály i rozsáhlejší pozemky.',
+          'Rozsah a četnost údržby přizpůsobíme vašim potřebám. Postaráme se o to, aby vaše firemní okolí působilo čistě, upraveně a reprezentativně.'
+        ]
+      },
+      'udrzba-fve': {
+        title: 'Údržba zeleně ve fotovoltaických elektrárnách',
+        img: 'Fotky Web/služby fotky/údržba fve.jpg',
+        imgPosition: 'center 10%',
+        formValue: 'Údržba zeleně FVE',
+        paragraphs: [
+          'Specializujeme se také na údržbu větších ploch, kde je důležitá efektivita, organizace práce a spolehlivost dodavatele. Zajišťujeme sečení trávy a údržbu vegetace ve firemních areálech, na průmyslových pozemcích a v areálech fotovoltaických elektráren (FVE).',
+          'U fotovoltaických elektráren je pravidelná údržba vegetace důležitá pro provozuschopnost a přístupnost areálu. Rozsah prací přizpůsobujeme místním podmínkám, rozmístění panelů, typu konstrukcí, možnostem pohybu techniky a požadavkům provozovatele.',
+          'Nabízíme řešení pro jednotlivé zakázky i dlouhodobější spolupráci při údržbě rozsáhlejších ploch. Naším cílem je provést potřebné práce efektivně a s ohledem na charakter daného areálu.'
+        ]
+      },
+      'zemni-prace': {
+        title: 'Zemní práce',
+        img: 'Fotky Web/služby fotky/zemní práce.jpg',
+        formValue: 'Zemní práce',
+        paragraphs: [
+          'Provádíme zemní práce a úpravy terénu pomocí techniky. Pomůžeme vám se srovnáním nerovností na pozemku, úpravou povrchu i vykopáním pařezů, které překážejí při dalším využití zahrady nebo stavební parcely. Cílem je připravit pozemek pro další práce, výsadbu, zatravnění nebo jiné využití.',
+          'Každou zakázku posuzujeme individuálně podle stavu pozemku a rozsahu prací.'
+        ]
+      },
+      'prodej-stepky': {
+        title: 'Prodej štěpky',
+        img: 'Fotky Web/služby fotky/prodej štěpky.jpg',
+        formValue: 'Prodej štěpky',
+        paragraphs: [
+          'Nabízíme prodej dřevní štěpky vhodné pro okrasné záhony, zahrady a okolí stromů. Štěpku vyrábíme z vybraného dřeva s důrazem na její vzhled, aby byla nejen praktickým pomocníkem při údržbě zahrady, ale také estetickým doplňkem. Pomáhá omezovat vysychání půdy a dodává záhonům upravený vzhled.',
+          'Kontaktujte nás pro informace o dostupnosti, ceně a možnostech dopravy.'
+        ]
+      },
+      'likvidace-dreva': {
+        title: 'Likvidace dřevní hmoty',
+        img: 'Fotky Web/služby fotky/likvidace dřevní hmoty.jpg',
+        formValue: 'Likvidace dřevní hmoty',
+        paragraphs: [
+          'Zajišťujeme likvidaci a odvoz dřevní hmoty vzniklé při kácení nebo likvidaci náletových dřevin. Menší množství dřevního odpadu odvážíme přímo, u většího objemu provádíme štěpkování a následný odvoz vzniklého bio odpadu. Způsob likvidace vždy přizpůsobujeme množství materiálu a podmínkám na pozemku.',
+          'Postaráme se o odstranění dřevní hmoty, aby byl pozemek připraven k dalšímu využití.'
+        ]
+      }
+    };
+
+    let currentOpenServiceKey = null;
+
+    function openServiceModal(serviceKey) {
+      const service = servicesData[serviceKey];
+      if (!service) return;
+
+      currentOpenServiceKey = serviceKey;
+
+      const modal = document.getElementById('service-modal');
+      const titleEl = document.getElementById('service-modal-title');
+      const imgEl = document.getElementById('service-modal-img');
+      const contentEl = document.getElementById('service-modal-content');
+
+      if (titleEl) titleEl.textContent = service.title;
+      if (imgEl) {
+        imgEl.src = service.img;
+        imgEl.alt = service.title;
+        imgEl.style.objectPosition = service.imgPosition || 'center center';
+      }
+      if (contentEl) {
+        contentEl.innerHTML = service.paragraphs.map(p => `<p class="leading-relaxed">${p}</p>`).join('');
+      }
+
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeServiceModal() {
+      const modal = document.getElementById('service-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      document.body.style.overflow = '';
+      currentOpenServiceKey = null;
+    }
+
+    function inquireCurrentService() {
+      if (!currentOpenServiceKey) {
+        closeServiceModal();
+        return;
+      }
+      const service = servicesData[currentOpenServiceKey];
+      const formValue = service ? service.formValue : '';
+      closeServiceModal();
+
+      if (formValue) {
+        preselectService(formValue);
+      } else {
+        const formSection = document.getElementById('poptavka');
+        if (formSection) formSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // ----------------------------------------------------
+    // 5. Preselect Service from Cards and Scroll to Form
     // ----------------------------------------------------
     function preselectService(serviceName) {
       const serviceSelect = document.getElementById('form-service');
@@ -2642,6 +2842,69 @@
       });
     });
   </script>
+
+  <!-- ========================================================================= -->
+  <!-- SERVICE DETAIL POPUP MODAL                                                -->
+  <!-- ========================================================================= -->
+  <div id="service-modal" 
+       class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6 overflow-y-auto"
+       role="dialog" 
+       aria-modal="true" 
+       aria-labelledby="service-modal-title"
+       onclick="if(event.target === this) closeServiceModal()">
+    
+    <!-- Modal Card Box -->
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden my-auto border border-gray-100 animate-service-modal">
+      
+      <!-- Top Image Header -->
+      <div class="relative h-44 sm:h-56 w-full bg-gray-900 overflow-hidden shrink-0">
+        <img id="service-modal-img" 
+             src="" 
+             alt="" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
+        
+        <!-- Close button (top right) -->
+        <button type="button" 
+                onclick="closeServiceModal()" 
+                class="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-all cursor-pointer shadow-md focus:outline-none focus:ring-2 focus:ring-brand-lime" 
+                aria-label="Zavřít detail služby">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Content Area (Scrollable if needed) -->
+      <div class="p-5 sm:p-7 flex flex-col overflow-y-auto flex-1">
+        <!-- Title -->
+        <h3 id="service-modal-title" class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
+          Název služby
+        </h3>
+        <div class="w-14 h-1 bg-brand-lime rounded mt-2 mb-4"></div>
+
+        <!-- Paragraphs (populated dynamically) -->
+        <div id="service-modal-content" class="space-y-3.5 text-gray-700 text-sm sm:text-base leading-relaxed">
+        </div>
+      </div>
+
+      <!-- Modal Footer / Actions (Always accessible at bottom) -->
+      <div class="p-4 sm:px-7 sm:py-4 bg-gray-50/90 border-t border-gray-100 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 shrink-0">
+        <button type="button" 
+                onclick="closeServiceModal()" 
+                class="px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-white text-sm font-semibold transition-colors text-center cursor-pointer">
+          Zavřít
+        </button>
+        
+        <button id="service-modal-inquire-btn" 
+                type="button" 
+                onclick="inquireCurrentService()" 
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-lime hover:bg-[#b0f530] text-black font-extrabold text-sm sm:text-base transition-all shadow-sm hover:shadow-md cursor-pointer transform hover:-translate-y-0.5">
+          <span>Nezávazně poptat tuto službu</span>
+          <span class="text-lg leading-none">→</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- ========================================================================= -->
   <!-- LIGHTBOX MODAL FOR REALIZACE IMAGES                                       -->
